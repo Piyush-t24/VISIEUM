@@ -13,8 +13,15 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="app.js" defer></script>
-  
+    <style>
+      /* Custom CSS to shift dropdown to the left */
+      .dropdown-menu {
+          transform: translateX(-50px); /* Adjust the value as needed */
+      }
+  </style>
   </head>
   <body>
   <div>
@@ -39,13 +46,26 @@
               <li><a href="#event">Explore</a></li>
               <li><a href="#about">About Us</a></li>
               <li><a href="#contact">Contact</a></li>
-              <li><a href="gallery.html">Gallary</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
               <li><a href="book.html">Book</a></li>
 
               <!-- <li><a href="#form-popup">LOG IN</a></li> -->
 
           </ul>
-          <button class="login-btn">LOG IN</button>
+          <div class="login">
+            <button id="loginButton" class="login-btn" style="display: none;">LOG IN</button>
+            <div id="profileDropdown" class="dropdown" style="display: none;">
+              <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <box-icon type='solid' name='user-circle' size="sm"></box-icon>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">My Account</a></li>
+                <li><a class="dropdown-item" href="#">My Orders</a></li>
+                <li><a class="dropdown-item" href="#">Explore</a></li>
+                <li><a class="dropdown-item" href="#">Logout</a></li>
+              </ul>
+            </div>
+          </div>
       </nav>
    </header>
    
@@ -373,104 +393,6 @@
  
 
 
-<!-- Gallery Section -->
-     <!-- <section class="gallery" id="gallery">
-        <h2 class="section_title">Gallery</h2>
-        <div class="section_container">
-          <div class="gallery_container">
-            <div class="gallery_items">
-              <img src="Museum.jpeg" alt="Gallery Image" />
-            </div>
-            <div class="gallery_items">
-              <img src="Museum.jpeg" alt="Gallery Image" />
-            </div>
-            <div class="gallery_items">
-              <img src="Museum.jpeg" alt="Gallery Image" />
-            </div>
-            <div class="gallery_items">
-              <img src="Museum.jpeg" alt="Gallery Image" />
-            </div>
-            <div class="gallery_items">
-              <img src="Museum.jpeg" alt="Gallery Image" />
-            </div>
-            <div class="gallery_items">
-              <img src="Museum.jpeg" alt="Gallery Image" />
-            </div>
-            <div class="gallery_items">
-              <img src="Museum.jpeg" alt="Gallery Image" />
-            </div>
-            <div class="gallery_items">
-              <img src="Museum.jpeg" alt="Gallery Image" />
-            </div>
-            <div class="gallery_items">
-              <img src="Museum.jpeg" alt="Gallery Image" />
-            </div>
-          </div>
-        </div>
-      </section> -->
-
-
-          <!-- Museum Section
-    <section class="museums" id="museum">
-        <h2 class="section_title">Museums</h2>
-        <div class="section_container">
-          <div class="museum_container">
-            <div class="museums_items">
-              <img src="Museum.jpeg" alt="Allahabad Museum" />
-              <div class="museums_text">
-                <h3>Allahabad Museum</h3>
-                <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda, totam.
-              </div>
-            </div>
-            <div class="museums_items">
-              <img src="Museum.jpeg" alt="National Museum New Delhi" />
-              <div class="museums_text">
-                <h3>National Museum New Delhi</h3>
-                <p>
-                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis, adipisci?!
-                </p>
-              </div>
-            </div>
-            <div class="museums_items">
-              <img src="Museum.jpeg" alt="Salar Jung Museum Hydrabad" />
-              <div class="museums_text">
-                <h3>Salar Jung Museum Hydrabad</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, saepe.</p>
-              </div>
-            </div>
-            <div class="museums_items">
-              <img src="Museum.jpeg" alt="Victoria Memorial Hall Kolkata" />
-              <div class="museums_text">
-                <h3>Victoria Memorial Hall Kolkata</h3>
-                <p>
-                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, dolorem.
-                </p>
-              </div>
-            </div>
-            <div class="museums_items">
-              <img
-                src="Museum.jpeg"
-                alt="Indian Museum Kolkata"
-              />
-              <div class="museums_text">
-                <h3>Indian MUseum Kolkata</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate, ex!</p>
-              </div>
-            </div>
-            <div class="museums_items">
-              <img src="Museum.jpeg" alt="NGMA Mumbai" />
-              <div class="museums_text">
-                <h3>NGMA Mumbai</h3>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. A, maiores?
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> -->
-
 
         <!-- Events Section -->
     <section class="events" id="event">
@@ -679,6 +601,8 @@
         </div>
       </div>
     </footer>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="app.js"></script>
@@ -707,6 +631,29 @@
                 tooltipSpan.style.top = (y + 20) + 'px';
                 tooltipSpan.style.left = (x) + 'px';
             };
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          // Function to check if the user is logged in
+          function checkLoginStatus() {
+              // Replace 'yourTokenKey' with the actual key you use to store the token
+              const token = localStorage.getItem('yourTokenKey'); // Use sessionStorage if needed
+
+              if (token) {
+                  // User is logged in
+                  document.getElementById('profileDropdown').style.display = 'block';
+                  document.getElementById('loginButton').style.display = 'none';
+              } else {
+                  // User is not logged in
+                  document.getElementById('loginButton').style.display = 'block';
+                  document.getElementById('profileDropdown').style.display = 'none';
+              }
+          }
+
+          // Call the function to set the initial state
+          checkLoginStatus();
+      });
     </script>
   </body>
 </html>
